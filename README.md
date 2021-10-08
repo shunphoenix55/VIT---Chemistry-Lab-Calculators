@@ -1,1 +1,2 @@
-This repository contains programs to help with calculating the required values for Chemistry Lab experiments.
+# VIT---Chemistry-Lab-Calculators
+A set of programs that makes it easier to perform calculations for Chemistry Lab experiments in VIT
