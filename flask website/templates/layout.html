@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ester Hydrolysis</title>
+        <!-- this gets the bootstrap stylesheet or something-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"> 
+        <script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+    </head>
+    <body>
+        <!--this includes the navbar code in this area, kinda like import I think-->
+        {% include 'includes/_navbar.html' %} 
+        <!-- this makes the block body a container so that it's positioned properly-->
+        <div class="container">
+            {% include 'includes/_messages.html' %}
+            {% block body %}{% endblock %}
+        </div>
+
+<!-- this gets the bootstrap script or something-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js">
+
+        </script>
+    </body>
+</html>

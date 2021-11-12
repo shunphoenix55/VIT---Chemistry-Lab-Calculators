@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+{% block body %}
+<br>
+<form action="" method="post">
+    <label for="">Number of Observations</label>
+    <input type="number" name="n" id="" value="{{request.form.n}}">
+    <label for="">Time interval in minutes</label>
+    <input type="number" name="increment" id="" value="{{request.form.increment}}">
+    <hr>
+<table class="table">
+    <tr>
+        <th>#</th>
+        <th>Time (min)</th>
+        <th>Vol. of NaOH (mL)</th>
+        <th> \(V_\infty - V_t\) </th>
+        <th>\(\log(V_\infty - V_t) \)</th>
+        <th>\(K = \frac{2.303}{t}\log(\frac{V_\infty - V_0}{V_\infty - V_t}) \)</th>
+    </tr>
+    {% for i in range(1, n) %}
+    <tr>
+        <td>
+            {{i}}
+        </td>
+        <td>{{(i-1) * increment}}</td>
+        <td>
+            {% if values[i-1] == 0 %}
+            <input type="number" step="0.1" name="Vt_{{i}}" id="" value="">
+            {% else %}
+            <input type="number" step="0.1" name="Vt_{{i}}" id="" value="{{values[i - 1]}}">
+            {% endif %}
+        </td>
+        <td>{{rows[i-1][3]}}</td>
+        <td>{{rows[i-1][4]}}</td>
+        <td>{{rows[i-1][5]}}</td>
+    </tr>
+    {% endfor %}
+    <tr>
+        <td>{{n}}</td>
+        <td>\(\infty\)</td>
+        <td><input type="number" name="V_inf" id="" step="0.1" value="{{request.form.V_inf}}"></td>
+
+    </tr>
+</table>
+k = {{k}} <br> <hr>
+<button type="submit" class="btn btn-primary">Submit</button> <button type="reset" class="btn btn-danger">Reset</button>
+</form> 
+{% endblock %} 
